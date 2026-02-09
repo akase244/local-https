@@ -1,0 +1,11 @@
+services:
+  caddy:
+    build: .
+    container_name: caddy-mkcert-https
+    ports:
+      - "127.0.0.1:443:443"
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./certs:/certs
+      - ./html:/srv:ro
