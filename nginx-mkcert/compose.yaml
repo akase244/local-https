@@ -1,8 +1,6 @@
 services:
   nginx-mkcert:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: nginx-mkcert-https
     ports:
       - "127.0.0.1:443:443"
