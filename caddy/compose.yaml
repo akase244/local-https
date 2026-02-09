@@ -1,0 +1,10 @@
+services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy-https
+    ports:
+      - "127.0.0.1:443:443"
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./html:/srv:ro
