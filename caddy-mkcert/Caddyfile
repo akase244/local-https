@@ -1,0 +1,5 @@
+:443 {
+    tls /certs/snakeoil.crt /certs/snakeoil.key
+    root * /srv
+    file_server
+}
