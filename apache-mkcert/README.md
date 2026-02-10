@@ -56,6 +56,27 @@ $ ls -l `mkcert -CAROOT`/*.pem
 - ~/.local/share/mkcert:/mkcert:ro
 ```
 
+`mkcert -install` を実行することで `mkcert -CAROOT`/rootCA.pem と同じ内容のファイルが以下のパスにコピーされます
+
+```
+$ ls -l /usr/local/share/ca-certificates/*.crt
+-rw-r--r-- 1 root root 1716  2月 10 11:04 /usr/local/share/ca-certificates/mkcert_development_CA_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.crt
+```
+
+同じ内容のため差分は何も表示されません
+
+```
+$ diff `mkcert -CAROOT`/rootCA.pem /usr/local/share/ca-certificates/mkcert_development_CA_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.crt
+（何も表示されない）
+```
+
+また、以下のパスにシンボリックリンクが作成され各アプリケーションから参照されます
+
+```
+$ ls -l /etc/ssl/certs/mkcert_*.pem 
+lrwxrwxrwx 1 root root 97  2月 10 11:04 /etc/ssl/certs/mkcert_development_CA_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem -> /usr/local/share/ca-certificates/mkcert_development_CA_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.crt
+```
+
 上記の指定によりブラウザでアクセスした際に「この接続ではプライバシーが保護されません」といった警告が表示されなくなります
 
 コンテナの作成と起動
