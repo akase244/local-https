@@ -1,5 +1,5 @@
 services:
-  caddy:
+  caddy-mkcert-https:
     build: .
     container_name: caddy-mkcert-https
     ports:
