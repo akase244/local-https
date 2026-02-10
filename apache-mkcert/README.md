@@ -20,10 +20,10 @@
 $ sudo apt install mkcert
 ```
 
-`libnss3-tools` が必要な場合がありますので、その際は同時にインストールします
+Firefox を利用する場合は追加で `libnss3-tools` のインストールが必要な場合があるようです
 
 ```
-$ sudo apt install mkcert libnss3-tools
+$ sudo apt install libnss3-tools
 ```
 
 ローカルCA証明書を作成
