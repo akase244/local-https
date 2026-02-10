@@ -8,7 +8,7 @@ CRT="${CERT_DIR}/${CERT_NAME}.crt"
 
 export MKCERT_CA_ROOT="/mkcert"
 
-mkdir -p "$CERT_DIR"
+mkdir -p "${CERT_DIR}"
 
 if [ ! -f "${KEY}" ] || [ ! -f "${CRT}" ]; then
   echo "generating certificate..."
