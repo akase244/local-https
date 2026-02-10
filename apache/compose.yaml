@@ -1,5 +1,5 @@
 services:
-  apache:
+  apache-https:
     build: .
     container_name: apache-https
     ports:

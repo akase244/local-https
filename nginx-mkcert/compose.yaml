@@ -1,5 +1,5 @@
 services:
-  nginx-mkcert:
+  nginx-mkcert-https:
     build: .
     container_name: nginx-mkcert-https
     ports:

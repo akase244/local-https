@@ -1,5 +1,5 @@
 services:
-  nginx:
+  nginx-https:
     build: .
     container_name: nginx-https
     ports:

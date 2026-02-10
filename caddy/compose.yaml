@@ -1,5 +1,5 @@
 services:
-  caddy:
+  caddy-https:
     image: caddy:latest
     container_name: caddy-https
     ports:
