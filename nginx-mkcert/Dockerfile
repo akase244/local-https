@@ -1,7 +1,7 @@
 FROM nginx:stable
 
 RUN apt-get update && \
-    apt-get install -y curl libnss3-tools ca-certificates && \
+    apt-get install -y curl ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -L https://dl.filippo.io/mkcert/latest?for=linux/amd64 \
