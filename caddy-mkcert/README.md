@@ -90,21 +90,21 @@ HTTP/1.1 308 Permanent Redirect
 Connection: close
 Location: https://localhost/
 Server: Caddy
-Date: Mon, 09 Feb 2026 16:46:26 GMT
+Date: Tue, 10 Feb 2026 03:24:31 GMT
 ```
 
-HTTPSアクセスの確認
+HTTPSアクセスの確認（「-k」、「--insecure」の指定は不要です）
 
 ```
-$ curl -Ik https://localhost/
+$ curl -I https://localhost/
 HTTP/2 200 
 accept-ranges: bytes
 alt-svc: h3=":443"; ma=2592000
 content-type: text/html; charset=utf-8
-etag: "dgakhtlslqh7w"
-last-modified: Mon, 09 Feb 2026 16:21:43 GMT
+etag: "dgal3rrlu79ww"
+last-modified: Mon, 09 Feb 2026 16:50:23 GMT
 server: Caddy
 vary: Accept-Encoding
 content-length: 32
-date: Mon, 09 Feb 2026 16:46:42 GMT
+date: Tue, 10 Feb 2026 03:24:43 GMT
 ```
