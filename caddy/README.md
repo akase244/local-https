@@ -62,10 +62,10 @@ Server: Caddy
 Date: Mon, 09 Feb 2026 15:44:29 GMT
 ```
 
-HTTPSアクセスの確認
+HTTPSアクセスの確認（「-k」、「--insecure」の指定は不要です）
 
 ```
-$ curl -Ik https://localhost/
+$ curl -I https://localhost/
 HTTP/2 200 
 accept-ranges: bytes
 alt-svc: h3=":443"; ma=2592000
