@@ -9,3 +9,4 @@ services:
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
       - ./html:/usr/local/apache2/htdocs:ro
       - ./certs:/usr/local/apache2/conf/certs
+      - ~/.local/share/mkcert:/mkcert:ro

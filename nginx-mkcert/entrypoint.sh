@@ -6,7 +6,7 @@ CERT_NAME="snakeoil"
 KEY="${CERT_DIR}/${CERT_NAME}.key"
 CRT="${CERT_DIR}/${CERT_NAME}.crt"
 
-export MKCERT_CA_ROOT="/mkcert"
+export CAROOT="/mkcert"
 
 mkdir -p "${CERT_DIR}"
 

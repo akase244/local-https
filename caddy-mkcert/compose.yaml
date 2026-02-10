@@ -9,3 +9,4 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./certs:/certs
       - ./html:/srv:ro
+      - ~/.local/share/mkcert:/mkcert:ro

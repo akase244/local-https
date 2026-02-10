@@ -6,6 +6,8 @@ CERT_NAME="snakeoil"
 KEY="${CERT_DIR}/${CERT_NAME}.key"
 CRT="${CERT_DIR}/${CERT_NAME}.crt"
 
+export CAROOT="/mkcert"
+
 mkdir -p "${CERT_DIR}"
 
 if [ ! -f "${KEY}" ] || [ ! -f "${CRT}" ]; then
