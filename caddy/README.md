@@ -1,5 +1,7 @@
 # caddy-https
 
+ディレクトリ構成
+
 ```
 .
 ├── Caddyfile
