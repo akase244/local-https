@@ -7,6 +7,7 @@
 ├── Dockerfile
 ├── README.md
 ├── certs
+│   ├── openssl.cnf
 │   ├── snakeoil.crt
 │   └── snakeoil.key
 ├── compose.yaml
