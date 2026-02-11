@@ -1,1 +1,33 @@
 # local-https
+
+Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を提供できるかを調査するためのリポジトリです
+
+```
+.
+├── apache-ca-false
+│   └── コンテナ内で openssl コマンドを利用してルート証明書とサーバー証明書を発行します
+├── apache-ca-true
+│   └── コンテナ内で openssl コマンドを利用してルート証明書（「basicConstraints=CA:TRUE」付きのサーバー証明書）を発行します
+├── apache-mkcert
+│   ├── コンテナ内で mkcert コマンドを利用してサーバー証明書を発行します
+│   └── ホストPC内で mkcert コマンドを利用してルート証明書を発行します
+├── caddy
+│   └── コンテナ内で Caddy によりルート証明書とサーバー証明書を発行します
+├── caddy-mkcert
+│   ├── コンテナ内で mkcert コマンドを利用してサーバー証明書を発行します
+│   └── ホストPC内で mkcert コマンドを利用してルート証明書を発行します
+├── nginx-ca-false
+│   └── コンテナ内で openssl コマンドを利用してルート証明書とサーバー証明書を発行します
+├── nginx-ca-true
+│   └── コンテナ内で openssl コマンドを利用してルート証明書（「basicConstraints=CA:TRUE」付きのサーバー証明書）を発行します
+└── nginx-mkcert
+    ├── コンテナ内で mkcert コマンドを利用してサーバー証明書を発行します
+    └── ホストPC内で mkcert コマンドを利用してルート証明書を発行します
+```
+
+- ブラウザで自己署名証明書の警告を抑制するには
+    - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
+- curlコマンド等で自己署名証明書の警告を抑制するには
+    - 発行したルート証明書を System Trust Store(update-ca-certificates) に登録する(Linux)
+    - 発行したルート証明書を キーチェーン に登録する(macOS)
+    - 発行したルート証明書を Windows証明書ストア に登録する(Windows)
