@@ -1,6 +1,7 @@
-# caddy-https
+# caddy
 
-コンテナ内のCaddyで作成されたルート証明書をホストPCに登録することで証明書の警告を抑制します
+- コンテナ内でルート証明書とサーバー証明書を発行します
+- コンテナ内のCaddyで作成されたルート証明書をホストPCに登録することで証明書の警告を抑制します
 
 ディレクトリ構成
 
@@ -42,7 +43,7 @@ $ docker compose down
 コンテナを起動して以下を実行しルート証明書をコンテナから取り出す
 
 ```
-$ docker compose exec caddy-https \
+$ docker compose exec caddy \
 cat /data/caddy/pki/authorities/local/root.crt > certs/caddy_Development_Root_CA.crt
 ```
 
