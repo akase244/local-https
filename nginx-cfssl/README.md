@@ -1,6 +1,6 @@
 # nginx-cfssl
 
-- コンテナ内で `cfssl` コマンドを利用してルート証明書とサーバー証明書を発行します
+- コンテナ内で `cfssl gencert` コマンドを利用してルート証明書とサーバー証明書を発行します
 - コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 
 ディレクトリ構成
@@ -53,9 +53,9 @@ $ docker compose down
 Dockerコンテナ内で作成されたルート証明書をホストPCに登録
 
 ```
-$ sudo cp certs/snakeoil_Development_Root_CA.pem /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.pem
-$ ls -l /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.pem
--rw-r--r-- 1 root root 2033  2月 11 00:51 /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.pem
+$ sudo cp certs/snakeoil_Development_Root_CA.pem /usr/local/share/ca-certificates/nginx-cfssl_snakeoil_Development_Root_CA.pem
+$ ls -l /usr/local/share/ca-certificates/nginx-cfssl_snakeoil_Development_Root_CA.pem
+-rw-r--r-- 1 root root 2033  2月 11 00:51 /usr/local/share/ca-certificates/nginx-cfssl_snakeoil_Development_Root_CA.pem
 $ sudo update-ca-certificates
 ```
 
