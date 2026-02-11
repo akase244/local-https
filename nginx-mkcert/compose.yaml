@@ -1,7 +1,7 @@
 services:
-  nginx-mkcert-https:
+  nginx-mkcert:
     build: .
-    container_name: nginx-mkcert-https
+    container_name: nginx-mkcert
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"
