@@ -1,11 +1,15 @@
 # caddy-https
 
+コンテナ内のCaddyで作成されたルート証明書をホストPCに登録することで証明書の警告を抑制します
+
 ディレクトリ構成
 
 ```
 .
 ├── Caddyfile
 ├── README.md
+├── certs
+│   └── caddy_Development_Root_CA.crt
 ├── compose.yaml
 └── html
     └── index.html
@@ -35,19 +39,19 @@ $ docker compose stop
 $ docker compose down
 ```
 
-コンテナを起動して以下を実行しCA証明書をコンテナから取り出します
+コンテナを起動して以下を実行しルート証明書をコンテナから取り出す
 
 ```
 $ docker compose exec caddy-https \
-cat /data/caddy/pki/authorities/local/root.crt > caddy_rootCA.crt
+cat /data/caddy/pki/authorities/local/root.crt > certs/caddy_Development_Root_CA.crt
 ```
 
-caddyで作成されたCA証明書をホスト側に登録する
+Caddyで作成されたルート証明書をホストPCに登録
 
 ```
-$ sudo cp caddy_rootCA.crt /usr/local/share/ca-certificates/
-$ ls -l /usr/local/share/ca-certificates/caddy_rootCA.crt 
--rw-r--r-- 1 root root 631  2月 10 20:53 /usr/local/share/ca-certificates/caddy_rootCA.crt
+$ sudo cp certs/caddy_Development_Root_CA.crt /usr/local/share/ca-certificates/
+$ ls -l /usr/local/share/ca-certificates/caddy_Development_Root_CA.crt 
+-rw-r--r-- 1 root root 631  2月 10 20:53 /usr/local/share/ca-certificates/caddy_Development_Root_CA.crt
 $ sudo update-ca-certificates
 ```
 
@@ -82,4 +86,4 @@ Google Chromeで「この接続ではプライバシーが保護されません�
 
 Google Chromeで `chrome://settings/certificates` にアクセスします
 
-「ローカル証明書」→「カスタム」→「自分でインストール」→「信頼できる証明書」から `caddy_rootCA.crt` をインポートします
+「ローカル証明書」→「カスタム」→「自分でインストール」→「信頼できる証明書」から `certs/caddy_Development_Root_CA.crt` をインポートします
