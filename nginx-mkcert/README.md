@@ -1,4 +1,10 @@
-# nginx-mkcert-https
+# nginx-mkcert
+
+- コンテナ内でサーバー証明書を発行します
+- ホストPC内でルート証明書を発行します
+- ホストPCの `mkcert` コマンドで作成したルート証明書を登録することで自己署名証明書の警告を抑制します
+
+ディレクトリ構成
 
 ```
 .
@@ -20,13 +26,7 @@
 $ sudo apt install mkcert
 ```
 
-Firefox を利用する場合は追加で `libnss3-tools` のインストールが必要な場合があるようです
-
-```
-$ sudo apt install libnss3-tools
-```
-
-ローカルCA証明書を作成
+ルート証明書を作成
 
 ```
 $ mkcert -install
@@ -42,7 +42,7 @@ $ mkcert -CAROOT
 /home/akase244/.local/share/mkcert
 ```
 
-作成されたローカルCA証明書を確認
+作成されたルート証明書を確認
 
 ```
 $ ls -l `mkcert -CAROOT`/*.pem
