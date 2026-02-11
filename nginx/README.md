@@ -1,6 +1,6 @@
 # nginx-https
 
-コンテナ内で作成されたルート証明書をホスト側に登録することで証明書の警告を抑制します
+コンテナ内で作成されたルート証明書をホストPCに登録することで証明書の警告を抑制します
 
 ディレクトリ構成
 
@@ -45,7 +45,7 @@ $ docker compose stop
 $ docker compose down
 ```
 
-Dockerコンテナ内で作成されたルート証明書をホスト側に登録
+Dockerコンテナ内で作成されたルート証明書をホストPCに登録
 
 ```
 $ sudo cp certs/snakeoil_Development_Root_CA.crt /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.crt
