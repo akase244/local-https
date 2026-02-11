@@ -46,7 +46,7 @@ req_extensions = v3_req
 [dn]
 C = JP
 ST = Tokyo
-L = Tokyo
+L = Localhost
 O = Snakeoil
 CN = localhost
 
