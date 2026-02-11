@@ -1,7 +1,7 @@
 services:
-  nginx-rootca-https:
+  nginx-ca-false:
     build: .
-    container_name: nginx-rootca-https
+    container_name: nginx-ca-false
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"
