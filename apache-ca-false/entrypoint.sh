@@ -22,7 +22,7 @@ if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ]; then
     -sha256 \
     -days 3650 \
     -out "${ROOTCA_CERT_CRT}" \
-    -subj "/C=JP/ST=Tokyo/L=Localhost/O=Snakeoil/CN=Local Development Root CA"
+    -subj "/C=JP/ST=Tokyo/L=Chiyoda/O=Snakeoil Development/CN=Local Development Root CA"
 
   chmod 600 "${ROOTCA_CERT_KEY}"
   chmod 644 "${ROOTCA_CERT_CRT}"
@@ -46,8 +46,8 @@ req_extensions = v3_req
 [dn]
 C = JP
 ST = Tokyo
-L = Localhost
-O = Snakeoil
+L = Chiyoda
+O = Snakeoil Development
 CN = localhost
 
 [v3_req]

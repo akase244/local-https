@@ -26,8 +26,8 @@ x509_extensions = v3_ca
 [dn]
 C = JP
 ST = Tokyo
-L = Localhost
-O = Snakeoil
+L = Chiyoda
+O = Snakeoil Development
 CN = localhost
 
 [v3_ca]

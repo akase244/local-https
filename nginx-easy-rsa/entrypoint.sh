@@ -23,9 +23,9 @@ if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ] || [ ! -f "${S
 set_var EASYRSA_REQ_COUNTRY    "JP"
 set_var EASYRSA_REQ_PROVINCE   "Tokyo"
 set_var EASYRSA_REQ_CITY       "Chiyoda"
-set_var EASYRSA_REQ_ORG        "Snakeoil"
+set_var EASYRSA_REQ_ORG        "Snakeoil Development"
 set_var EASYRSA_REQ_EMAIL      "admin@localhost"
-set_var EASYRSA_REQ_OU         "Development"
+set_var EASYRSA_REQ_OU         "Snakeoil Development"
 set_var EASYRSA_ALGO           "rsa"
 set_var EASYRSA_DIGEST         "sha256"
 EOF
