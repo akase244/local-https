@@ -1,7 +1,7 @@
 services:
-  caddy-mkcert-https:
+  caddy-mkcert:
     build: .
-    container_name: caddy-mkcert-https
+    container_name: caddy-mkcert
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"
