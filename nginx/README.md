@@ -1,15 +1,20 @@
 # nginx-https
 
+コンテナ内で作成されたルート証明書をホスト側に登録することで証明書の警告を抑制します
+
 ディレクトリ構成
 
 ```
+ 
 .
 ├── Dockerfile
 ├── README.md
 ├── certs
 │   ├── openssl.cnf
-│   ├── snakeoil.crt
-│   └── snakeoil.key
+│   ├── snakeoil.crt -> /etc/nginx/certs/snakeoil_Development_Root_CA.crt
+│   ├── snakeoil.key -> /etc/nginx/certs/snakeoil_Development_Root_CA.key
+│   ├── snakeoil_Development_Root_CA.crt
+│   └── snakeoil_Development_Root_CA.key
 ├── compose.yaml
 ├── default.conf
 ├── entrypoint.sh
@@ -41,12 +46,12 @@ $ docker compose stop
 $ docker compose down
 ```
 
-Dockerコンテナ内で作成されたCA証明書として機能するサーバー証明書をホスト側に登録
+Dockerコンテナ内で作成されたルート証明書をホスト側に登録
 
 ```
-$ sudo cp certs/snakeoil.crt /usr/local/share/ca-certificates/nginx_rootCA.crt
-$ ls -l /usr/local/share/ca-certificates/nginx_rootCA.crt
--rw-r--r-- 1 root root 2122  2月 11 00:08 /usr/local/share/ca-certificates/nginx_rootCA.crt
+$ sudo cp certs/snakeoil_Development_Root_CA.crt /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.crt
+$ ls -l /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.crt
+-rw-r--r-- 1 root root 2122  2月 11 00:08 /usr/local/share/ca-certificates/nginx_snakeoil_Development_Root_CA.crt
 $ sudo update-ca-certificates
 ```
 
@@ -82,4 +87,4 @@ Google Chromeで「この接続ではプライバシーが保護されません�
 
 Google Chromeで `chrome://settings/certificates` にアクセスします
 
-「ローカル証明書」→「カスタム」→「自分でインストール」→「信頼できる証明書」から `certs/snakeoil.crt` をインポートします
+「ローカル証明書」→「カスタム」→「自分でインストール」→「信頼できる証明書」から `certs/snakeoil_Development_Root_CA.crt` をインポートします

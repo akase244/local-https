@@ -2,16 +2,19 @@
 set -e
 
 CERT_DIR="/etc/nginx/certs"
-CERT_NAME="snakeoil"
-SERVER_KEY="${CERT_DIR}/${CERT_NAME}.key"
-SERVER_CRT="${CERT_DIR}/${CERT_NAME}.crt"
+ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_KEY="${CERT_DIR}/${ROOTCA_CERT_NAME}.key"
+ROOTCA_CERT_CRT="${CERT_DIR}/${ROOTCA_CERT_NAME}.crt"
+SERVER_CERT_NAME="snakeoil"
+SERVER_CERT_KEY="${CERT_DIR}/${SERVER_CERT_NAME}.key"
+SERVER_CERT_CRT="${CERT_DIR}/${SERVER_CERT_NAME}.crt"
 
 mkdir -p "$CERT_DIR"
 
-if [ ! -f "${SERVER_KEY}" ] || [ ! -f "${SERVER_CRT}" ]; then
+if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ]; then
   echo "generating certificate..."
 
-  # basicConstraints に CA:TRUE が指定されているため、このサーバー証明書はCA証明書として機能します
+  # basicConstraints に CA:TRUE が指定されているためルート証明書として発行される
   cat > "${CERT_DIR}/openssl.cnf" <<EOF
 [req]
 default_bits = 4096
@@ -25,7 +28,6 @@ C = JP
 ST = Tokyo
 L = Localhost
 O = Snakeoil
-OU = Development
 CN = localhost
 
 [v3_ca]
@@ -42,12 +44,15 @@ EOF
 
   openssl req -x509 -nodes -days 365 \
     -newkey rsa:4096 \
-    -keyout "${SERVER_KEY}" \
-    -out "${SERVER_CRT}" \
+    -keyout "${ROOTCA_CERT_KEY}" \
+    -out "${ROOTCA_CERT_CRT}" \
     -config "${CERT_DIR}/openssl.cnf"
 
-  chmod 600 "${SERVER_KEY}"
-  chmod 644 "${SERVER_CRT}"
+  chmod 600 "${ROOTCA_CERT_KEY}"
+  chmod 644 "${ROOTCA_CERT_CRT}"
+
+  ln -sf ${ROOTCA_CERT_KEY} ${SERVER_CERT_KEY}
+  ln -sf ${ROOTCA_CERT_CRT} ${SERVER_CERT_CRT}
 else
   echo "certificate already exists"
 fi
