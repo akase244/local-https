@@ -1,0 +1,11 @@
+services:
+  apache-ca-false:
+    build: .
+    container_name: apache-ca-false
+    ports:
+      - "127.0.0.1:443:443"
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+      - ./html:/usr/local/apache2/htdocs:ro
+      - ./certs:/usr/local/apache2/conf/certs
