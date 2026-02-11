@@ -47,8 +47,8 @@ EOF
     {
       "C": "JP",
       "ST": "Tokyo",
-      "L": "Localhost",
-      "O": "Snakeoil"
+      "L": "Chiyoda",
+      "O": "Snakeoil Development"
     }
   ]
 }
@@ -81,8 +81,8 @@ if [ ! -f "${SERVER_CERT_KEY}" ] || [ ! -f "${SERVER_CERT_CRT}" ]; then
     {
       "C": "JP",
       "ST": "Tokyo",
-      "L": "Localhost",
-      "O": "Snakeoil"
+      "L": "Chiyoda",
+      "O": "Snakeoil Development"
     }
   ]
 }
