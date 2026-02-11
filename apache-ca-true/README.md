@@ -49,9 +49,9 @@ $ docker compose down
 Dockerコンテナ内で作成されたルート証明書をホストPCに登録
 
 ```
-$ sudo cp certs/snakeoil_Development_Root_CA.crt /usr/local/share/ca-certificates/apache_snakeoil_Development_Root_CA.crt
-$ ls -l /usr/local/share/ca-certificates/apache_snakeoil_Development_Root_CA.crt
--rw-r--r-- 1 root root 2061  2月 11 12:32 /usr/local/share/ca-certificates/apache_snakeoil_Development_Root_CA.crt
+$ sudo cp certs/snakeoil_Development_Root_CA.crt /usr/local/share/ca-certificates/apache-ca-true_snakeoil_Development_Root_CA.crt
+$ ls -l /usr/local/share/ca-certificates/apache-ca-true_snakeoil_Development_Root_CA.crt
+-rw-r--r-- 1 root root 2061  2月 11 12:32 /usr/local/share/ca-certificates/apache-ca-true_snakeoil_Development_Root_CA.crt
 $ sudo update-ca-certificates
 ```
 
