@@ -5,7 +5,6 @@
 ディレクトリ構成
 
 ```
- 
 .
 ├── Dockerfile
 ├── README.md
