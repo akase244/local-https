@@ -36,6 +36,9 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 ├── nginx-easy-rsa
 │   ├── コンテナ内で `easyrsa` コマンドを利用してルート証明書とサーバー証明書を発行します
 │   └── コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
+├── nginx-minica
+│   ├── コンテナ内で `minica` コマンドを利用してルート証明書とサーバー証明書を発行します
+│   └── コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 ├── nginx-mkcert
 │   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
 │   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
@@ -58,6 +61,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [easy-rsa](https://github.com/OpenVPN/easy-rsa)
   - [Step CLI](https://github.com/smallstep/cli)
   - [Traefik](https://traefik.io/traefik)
+  - [minica](https://github.com/jsha/minica)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
