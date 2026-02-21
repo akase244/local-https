@@ -1,17 +1,22 @@
 services:
   traefik:
-    image: traefik:v3
+    build: .
     container_name: traefik
     command:
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
+      - --providers.file.directory=/etc/traefik
+      - --providers.file.watch=true
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock:ro
+        - ./certs:/certs
+        - ~/.local/share/mkcert:/mkcert:ro
+    restart: unless-stopped
   app:
     image: nginx:alpine
     container_name: nginx-app

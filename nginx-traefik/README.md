@@ -41,29 +41,32 @@ $ docker compose down
 
 HTTPアクセスの確認
 
-今回 `Traefik` では80番で待ち受ける設定をおこなっていないため 404が返ってきます
+`127.0.0.1` ではアクセスできません
 
 ```
-$ curl -I http://127.0.0.1/
-HTTP/1.1 404 Not Found
-Content-Type: text/plain; charset=utf-8
-X-Content-Type-Options: nosniff
-Date: Thu, 12 Feb 2026 05:17:56 GMT
-Content-Length: 19
+$ curl -I http://localhost/
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Content-Length: 27
+Content-Type: text/html
+Date: Sat, 21 Feb 2026 09:58:32 GMT
+Etag: "698d65bd-1b"
+Last-Modified: Thu, 12 Feb 2026 05:31:41 GMT
+Server: nginx/1.29.5
 ```
 
 HTTPSアクセスの確認
 
-`127.0.0.1` ではアクセスできないようです
+`127.0.0.1` ではアクセスできません
 
 ```
 $ curl -Ik https://localhost/
 HTTP/2 200 
 accept-ranges: bytes
 content-type: text/html
-date: Thu, 12 Feb 2026 05:23:05 GMT
-etag: "698d59ae-1b"
-last-modified: Thu, 12 Feb 2026 04:40:14 GMT
+date: Sat, 21 Feb 2026 10:01:15 GMT
+etag: "698d65bd-1b"
+last-modified: Thu, 12 Feb 2026 05:31:41 GMT
 server: nginx/1.29.5
 content-length: 27
 ```
