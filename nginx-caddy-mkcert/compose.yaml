@@ -1,0 +1,18 @@
+services:
+  caddy:
+    build: .
+    container_name: nginx-caddy-mkcert
+    ports:
+      - "127.0.0.1:443:443"
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./certs:/certs
+      - ~/.local/share/mkcert:/mkcert:ro
+    depends_on:
+      - app
+  app:
+    image: nginx:alpine
+    container_name: nginx-app
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
