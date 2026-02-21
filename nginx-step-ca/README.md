@@ -1,5 +1,7 @@
 # nginx-step-ca
 
+- TLS終端: Nginx
+- webサーバー: Nginx
 - コンテナ内で `step certificate create` コマンドを利用してルート証明書とサーバー証明書を発行します
 - コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 

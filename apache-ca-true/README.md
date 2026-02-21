@@ -1,5 +1,7 @@
 # apache-ca-true
 
+- TLS終端: Apache
+- webサーバー: Apache
 - コンテナ内で `openssl` コマンドを利用してルート証明書（「basicConstraints=CA:TRUE」付きのサーバー証明書）を発行します
 - コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 
