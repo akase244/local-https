@@ -7,9 +7,9 @@ services:
     volumes:
       - ./certs:/etc/nginx/certs
 
-  app:
+  web-server:
     image: nginx:alpine
-    container_name: nginx-app
+    container_name: web-server
     depends_on:
       - minica
     ports:

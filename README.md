@@ -89,24 +89,30 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 │   ├── コンテナ内で `Traefik` により自己署名のサーバー証明書（兼 ルート証明書）を発行します
 │   ├── コンテナ内の `Traefik` で作成された自己署名のサーバー証明書はメモリ上に展開されているようです
 │   └── SANの値が設定されていない仮の証明書のためコンテナから取り出すことができても警告の抑制を行うことはできません
-└── nginx-traefik-mkcert
-    ├── TLS終端: Traefik
+├── nginx-traefik-mkcert
+│   ├── TLS終端: Traefik
+│   ├── webサーバー: Nginx
+│   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
+│   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
+│   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
+└── nginx-vault
+    ├── TLS終端: Nginx
     ├── webサーバー: Nginx
-    ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
-    ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
-    └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
+    ├── コンテナ内で `vault` コマンドを利用してルート証明書とサーバー証明書を発行します
+    └── コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 ```
 
 - 証明書発行のために利用したツール群
   - [OpenSSL](https://www.openssl.org/)
   - [mkcert](https://mkcert.org/)
   - [Caddy](https://caddyserver.com/)
-  - [certstrap](https://github.com/square/certstrap)
-  - [CFSSL](https://github.com/cloudflare/cfssl)
-  - [easy-rsa](https://github.com/OpenVPN/easy-rsa)
-  - [Step CLI](https://github.com/smallstep/cli)
-  - [Traefik](https://traefik.io/traefik)
-  - [minica](https://github.com/jsha/minica)
+  - [certstrap (Square)](https://github.com/square/certstrap)
+  - [CFSSL (Cloudflare)](https://github.com/cloudflare/cfssl)
+  - [easy-rsa (OpenVPN)](https://github.com/OpenVPN/easy-rsa)
+  - [Step CLI (Smallstep's)](https://github.com/smallstep/cli)
+  - [Traefik (Traefik Labs)](https://traefik.io/traefik)
+  - [Minica](https://github.com/jsha/minica)
+  - [Vault (HashiCorp)](https://www.hashicorp.com/ja/products/vault)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする

@@ -1,7 +1,7 @@
 services:
-  caddy:
+  reverse-proxy:
     image: caddy:latest
-    container_name: nginx-caddy
+    container_name: reverse-proxy
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"
@@ -10,10 +10,10 @@ services:
       - caddy-data:/data
       - caddy-config:/config
     depends_on:
-      - app
-  app:
+      - web-server
+  web-server:
     image: nginx:alpine
-    container_name: nginx-app
+    container_name: web-server
     volumes:
       - ./html:/usr/share/nginx/html:ro
 

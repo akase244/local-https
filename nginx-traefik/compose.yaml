@@ -1,7 +1,7 @@
 services:
-  traefik:
+  reverse-proxy:
     image: traefik:v3
-    container_name: traefik
+    container_name: reverse-proxy
     command:
       - --entrypoints.web.address=:80
       - --entrypoints.websecure.address=:443
@@ -12,9 +12,9 @@ services:
       - "127.0.0.1:80:80"
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock:ro
-  app:
+  web-server:
     image: nginx:alpine
-    container_name: nginx-app
+    container_name: web-server
     volumes:
       - ./html:/usr/share/nginx/html:ro
     labels:

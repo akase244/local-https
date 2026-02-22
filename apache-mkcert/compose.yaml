@@ -1,7 +1,7 @@
 services:
-  apache-mkcert:
+  web-server:
     build: .
-    container_name: apache-mkcert
+    container_name: web-server
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"
