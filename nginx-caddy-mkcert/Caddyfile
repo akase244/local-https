@@ -8,5 +8,5 @@ http://localhost {
 
 https://localhost {
     tls /certs/snakeoil.crt /certs/snakeoil.key
-    reverse_proxy app:80
+    reverse_proxy web-server:80
 }

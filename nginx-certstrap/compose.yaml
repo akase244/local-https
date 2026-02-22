@@ -1,7 +1,7 @@
 services:
-  nginx-certstrap:
+  web-server:
     build: .
-    container_name: nginx-certstrap
+    container_name: web-server
     ports:
       - "127.0.0.1:443:443"
       - "127.0.0.1:80:80"

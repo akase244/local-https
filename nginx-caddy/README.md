@@ -45,7 +45,7 @@ $ docker compose down
 コンテナを起動して以下を実行しルート証明書をコンテナから取り出す
 
 ```
-$ docker compose exec caddy \
+$ docker compose exec reverse-proxy \
 cat /data/caddy/pki/authorities/local/root.crt > certs/caddy_Development_Root_CA.crt
 ```
 
