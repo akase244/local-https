@@ -109,7 +109,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [certstrap (Square)](https://github.com/square/certstrap)
   - [CFSSL (Cloudflare)](https://github.com/cloudflare/cfssl)
   - [easy-rsa (OpenVPN)](https://github.com/OpenVPN/easy-rsa)
-  - [Step CLI (Smallstep's)](https://github.com/smallstep/cli)
+  - [Step CLI (Smallstep)](https://github.com/smallstep/cli)
   - [Traefik (Traefik Labs)](https://traefik.io/traefik)
   - [Minica](https://github.com/jsha/minica)
   - [Vault (HashiCorp)](https://www.hashicorp.com/ja/products/vault)
