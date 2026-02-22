@@ -106,13 +106,13 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [OpenSSL](https://www.openssl.org/)
   - [mkcert](https://mkcert.org/)
   - [Caddy](https://caddyserver.com/)
-  - [certstrap(Square)](https://github.com/square/certstrap)
-  - [CFSSL(Cloudflare)](https://github.com/cloudflare/cfssl)
-  - [easy-rsa(OpenVPN)](https://github.com/OpenVPN/easy-rsa)
-  - [Step CLI(Smallstep's)](https://github.com/smallstep/cli)
-  - [Traefik](https://traefik.io/traefik)
+  - [certstrap (Square)](https://github.com/square/certstrap)
+  - [CFSSL (Cloudflare)](https://github.com/cloudflare/cfssl)
+  - [easy-rsa (OpenVPN)](https://github.com/OpenVPN/easy-rsa)
+  - [Step CLI (Smallstep's)](https://github.com/smallstep/cli)
+  - [Traefik (Traefik Labs)](https://traefik.io/traefik)
   - [Minica](https://github.com/jsha/minica)
-  - [HashiCorp Vault](https://www.hashicorp.com/ja/products/vault)
+  - [Vault (HashiCorp)](https://www.hashicorp.com/ja/products/vault)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
