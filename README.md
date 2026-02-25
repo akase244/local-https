@@ -36,6 +36,12 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 │   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
 │   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
 │   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
+├── flask-mkcert
+│   ├── TLS終端: Flask
+│   ├── webサーバー: Flask
+│   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
+│   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
+│   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
 ├── nginx-ca-false
 │   ├── TLS終端: Nginx
 │   ├── webサーバー: Nginx
@@ -137,6 +143,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [Unicorn](https://yhbt.net/unicorn/README.html)
   - [Apache](https://httpd.apache.org/)
   - [Nginx](https://nginx.org/en/)
+  - [Flask](https://flask.palletsprojects.com/en/stable/)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
