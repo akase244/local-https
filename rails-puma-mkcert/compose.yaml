@@ -1,0 +1,13 @@
+services:
+  web-server:
+    build: .
+    container_name: web-server
+    volumes:
+      - ./app:/app
+      - ~/.local/share/mkcert:/mkcert:ro
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      RAILS_ENV: development
+    tty: true
+    stdin_open: true
