@@ -124,7 +124,13 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [Traefik (Traefik Labs)](https://traefik.io/traefik)
   - [Minica](https://github.com/jsha/minica)
   - [Vault (HashiCorp)](https://www.hashicorp.com/ja/products/vault)
+
+- webサーバー/リバースプロキシとして利用したツール群
+  - [Caddy](https://caddyserver.com/)
+  - [Traefik (Traefik Labs)](https://traefik.io/traefik)
   - [Puma](https://puma.io/)
+  - [Apache](https://httpd.apache.org/)
+  - [Nginx](https://nginx.org/en/)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
