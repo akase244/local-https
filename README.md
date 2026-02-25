@@ -105,12 +105,17 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 │   ├── webサーバー: Nginx
 │   ├── コンテナ内で `vault` コマンドを利用してルート証明書とサーバー証明書を発行します
 │   └── コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
-└── rails-puma-mkcert
-    ├── TLS終端: Puma
-    ├── webサーバー: Puma
-    ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
-    ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
-    └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
+├── rails-puma-mkcert
+│   ├── TLS終端: Puma
+│   ├── webサーバー: Puma
+│   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
+│   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
+│   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
+└── sinatra-unicorn-caddy
+    ├── TLS終端: Caddy
+    ├── webサーバー: Uniconn
+    ├── コンテナ内で `Caddy` によりルート証明書とサーバー証明書を発行します
+    └── コンテナ内の `Caddy` で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 ```
 
 - 証明書発行のために利用したツール群
@@ -129,6 +134,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [Caddy](https://caddyserver.com/)
   - [Traefik (Traefik Labs)](https://traefik.io/traefik)
   - [Puma](https://puma.io/)
+  - [Unicorn](https://yhbt.net/unicorn/README.html)
   - [Apache](https://httpd.apache.org/)
   - [Nginx](https://nginx.org/en/)
 
