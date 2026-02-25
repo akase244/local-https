@@ -1,4 +1,4 @@
-# nginx-mkcert
+# rails-puma-mkcert
 
 - TLS終端: Puma
 - webサーバー: Puma
@@ -9,13 +9,12 @@
 ディレクトリ構成
 
 ```
-$ tree -d
 .
 ├── Dockerfile
 ├── Gemfile
 ├── README.md
-├── app/
-├── certs/
+├── app
+├── certs
 ├── compose.yaml
 └── entrypoint.sh
 ```
