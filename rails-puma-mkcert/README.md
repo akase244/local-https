@@ -105,7 +105,7 @@ $ docker compose down
 
 HTTPアクセスの確認
 
-Pumaが3000番ポートでSSL/TLS接続のみを受け付けるためHTTP接続は不可。
+Pumaは3000番ポートでSSL/TLS接続のみを受け付けるためHTTP接続は不可。
 
 ```
 $ curl -I http://127.0.0.1
