@@ -42,6 +42,12 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 │   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
 │   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
 │   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
+├── gin-mkcert
+│   ├── TLS終端: Gin
+│   ├── webサーバー: Gin
+│   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
+│   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
+│   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
 ├── nginx-ca-false
 │   ├── TLS終端: Nginx
 │   ├── webサーバー: Nginx
@@ -144,6 +150,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [Apache](https://httpd.apache.org/)
   - [Nginx](https://nginx.org/en/)
   - [Flask](https://flask.palletsprojects.com/en/stable/)
+  - [Gin](https://gin-gonic.com/)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
