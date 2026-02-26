@@ -25,6 +25,11 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 │   ├── webサーバー: Apache
 │   ├── コンテナ内で `openssl` コマンドを利用してルート証明書（「basicConstraints=CA:TRUE」付きのサーバー証明書）を発行します
 │   └── コンテナ内で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
+├── bottle-caddy
+│   ├── TLS終端: Caddy 
+│   ├── webサーバー: Bottle
+│   ├── コンテナ内で `Caddy` によりルート証明書とサーバー証明書を発行します
+│   └── コンテナ内の `Caddy` で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
 ├── caddy
 │   ├── TLS終端: Caddy
 │   ├── webサーバー: Caddy
@@ -167,6 +172,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [Apache](https://httpd.apache.org/)
   - [Nginx](https://nginx.org/en/)
   - [Flask](https://flask.palletsprojects.com/en/stable/)
+  - [Bottle](https://bottlepy.org/docs/dev/)
   - [Gin](https://gin-gonic.com/)
   - [Echo](https://echo.labstack.com/)
   - [PHP Built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php)
