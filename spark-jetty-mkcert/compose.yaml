@@ -1,0 +1,9 @@
+services:
+  web-server:
+    build: .
+    container_name: web-server
+    ports:
+      - "127.0.0.1:4567:4567"
+    volumes:
+      - ~/.local/share/mkcert:/mkcert:ro
+    restart: unless-stopped

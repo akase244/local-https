@@ -134,11 +134,17 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
 │   ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
 │   ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
 │   └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
-└── sinatra-unicorn-caddy
-    ├── TLS終端: Caddy
-    ├── webサーバー: Uniconn
-    ├── コンテナ内で `Caddy` によりルート証明書とサーバー証明書を発行します
-    └── コンテナ内の `Caddy` で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
+├── sinatra-unicorn-caddy
+│   ├── TLS終端: Caddy
+│   ├── webサーバー: Uniconn
+│   ├── コンテナ内で `Caddy` によりルート証明書とサーバー証明書を発行します
+│   └── コンテナ内の `Caddy` で作成されたルート証明書をホストPCに登録することでサーバー証明書の警告を抑制します
+└── spark-jetty-mkcert
+    ├── TLS終端: Jetty
+    ├── webサーバー: Jetty
+    ├── コンテナ内で `mkcert` コマンドを利用してサーバー証明書を発行します
+    ├── ホストPC内で `mkcert` コマンドを利用してルート証明書を発行します
+    └── ホストPCの `mkcert` コマンドで作成したルート証明書を登録することでサーバー証明書の警告を抑制します
 ```
 
 - 証明書発行のために利用したツール群
@@ -164,6 +170,7 @@ Dockerコンテナを利用してローカルでHTTPS接続が可能な環境を
   - [Gin](https://gin-gonic.com/)
   - [Echo](https://echo.labstack.com/)
   - [PHP Built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php)
+  - [Jetty](https://jetty.org/index.html)
 
 - ブラウザでサーバー証明書の警告を抑制するには
     - 発行したルート証明書 または サーバー証明書をブラウザでインポートする
