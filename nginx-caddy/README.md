@@ -1,4 +1,4 @@
-# caddy
+# nginx-caddy
 
 - TLS終端: Caddy 
 - webサーバー: Nginx
@@ -12,7 +12,7 @@
 ├── Caddyfile
 ├── README.md
 ├── certs
-│   └── caddy_Development_Root_CA.crt
+│   └── nginx-caddy_Development_Root_CA.crt
 ├── compose.yaml
 └── html
     └── index.html
@@ -46,15 +46,15 @@ $ docker compose down
 
 ```
 $ docker compose exec reverse-proxy \
-cat /data/caddy/pki/authorities/local/root.crt > certs/caddy_Development_Root_CA.crt
+cat /data/caddy/pki/authorities/local/root.crt > certs/nginx-caddy_Development_Root_CA.crt
 ```
 
 Caddyで作成されたルート証明書をホストPCに登録
 
 ```
-$ sudo cp certs/caddy_Development_Root_CA.crt /usr/local/share/ca-certificates/
-$ ls -l /usr/local/share/ca-certificates/caddy_Development_Root_CA.crt 
--rw-r--r-- 1 root root 631  2月 10 20:53 /usr/local/share/ca-certificates/caddy_Development_Root_CA.crt
+$ sudo cp certs/nginx-caddy_Development_Root_CA.crt /usr/local/share/ca-certificates/
+$ ls -l /usr/local/share/ca-certificates/nginx-caddy_Development_Root_CA.crt 
+-rw-r--r-- 1 root root 631  2月 10 20:53 /usr/local/share/ca-certificates/nginx-caddy_Development_Root_CA.crt
 $ sudo update-ca-certificates
 ```
 
@@ -89,4 +89,4 @@ Google Chromeで「この接続ではプライバシーが保護されません�
 
 Google Chromeで `chrome://settings/certificates` にアクセスします
 
-「ローカル証明書」→「カスタム」→「自分でインストール」→「信頼できる証明書」から `certs/caddy_Development_Root_CA.crt` をインポートします
+「ローカル証明書」→「カスタム」→「自分でインストール」→「信頼できる証明書」から `certs/nginx-caddy_Development_Root_CA.crt` をインポートします
