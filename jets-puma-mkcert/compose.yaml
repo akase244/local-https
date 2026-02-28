@@ -1,0 +1,11 @@
+services:
+  web-server:
+    build: .
+    container_name: web-server
+    ports:
+      - "127.0.0.1:9293:9293"
+    volumes:
+      - ./certs:/certs
+      - ~/.local/share/mkcert:/mkcert:ro
+    environment:
+      JETS_ENV: development
