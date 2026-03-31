@@ -73,15 +73,29 @@ $ sudo update-ca-certificates
 HTTPアクセスの確認
 
 ```
-$ curl -I http://127.0.0.1/
+$ curl -I http://localhost/
 HTTP/1.1 301 Moved Permanently
+Server: nginx/1.29.5
+Date: Tue, 31 Mar 2026 08:43:54 GMT
+Content-Type: text/html
+Content-Length: 169
+Connection: keep-alive
+Location: https://localhost/
 ```
 
 HTTPSアクセスの確認（「-k」、「--insecure」の指定は不要です）
 
 ```
-$ curl -I https://127.0.0.1/
+$ curl -I https://localhost/
 HTTP/1.1 200 OK
+Server: nginx/1.29.5
+Date: Tue, 31 Mar 2026 08:44:19 GMT
+Content-Type: text/html
+Content-Length: 31
+Last-Modified: Mon, 30 Mar 2026 14:51:19 GMT
+Connection: keep-alive
+ETag: "69ca8de7-1f"
+Accept-Ranges: bytes
 ```
 
 Google Chromeで「この接続ではプライバシーが保護されません」といった警告が出ないようにするには以下の操作を行います
