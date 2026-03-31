@@ -14,7 +14,7 @@ mkdir -p "$CERT_DIR"
 if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ]; then
   echo "generating certificate..."
 
-  # basicConstraints に CA:TRUE が指定されているためルート証明書として発行される
+  # v3_ca が指定されているためルート証明書として発行される
   cat > "${CERT_DIR}/openssl.cnf" <<EOF
 [req]
 default_bits = 4096
