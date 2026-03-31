@@ -2,7 +2,7 @@
 set -e
 
 CERT_DIR="/etc/nginx/certs"
-ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_NAME="snakeoil_ca"
 ROOTCA_CERT_KEY="${CERT_DIR}/${ROOTCA_CERT_NAME}.key"
 ROOTCA_CERT_CRT="${CERT_DIR}/${ROOTCA_CERT_NAME}.crt"
 SERVER_CERT_NAME="snakeoil"
@@ -23,9 +23,9 @@ if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ] || [ ! -f "${S
 set_var EASYRSA_REQ_COUNTRY    "JP"
 set_var EASYRSA_REQ_PROVINCE   "Tokyo"
 set_var EASYRSA_REQ_CITY       "Chiyoda"
-set_var EASYRSA_REQ_ORG        "Snakeoil Development"
+set_var EASYRSA_REQ_ORG        "Local Development"
 set_var EASYRSA_REQ_EMAIL      "admin@localhost"
-set_var EASYRSA_REQ_OU         "Snakeoil Development"
+set_var EASYRSA_REQ_OU         "Local Development"
 set_var EASYRSA_ALGO           "rsa"
 set_var EASYRSA_DIGEST         "sha256"
 EOF

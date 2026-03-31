@@ -39,7 +39,7 @@ final class CertificateGenerator
 
     public function __construct(
         private readonly string $certDir,
-        private readonly string $rootCaName = 'snakeoil_Development_Root_CA',
+        private readonly string $rootCaName = 'snakeoil_ca',
         private readonly string $serverCertName = 'snakeoil',
     ) {}
 
@@ -106,8 +106,8 @@ final class CertificateGenerator
             C = JP
             ST = Tokyo
             L = Chiyoda
-            O = Snakeoil Development
-            CN = Local Development Root CA
+            O = Local Development
+            CN = localhost
 
             [v3_ca]
             basicConstraints = critical,CA:TRUE
@@ -130,7 +130,7 @@ final class CertificateGenerator
             C = JP
             ST = Tokyo
             L = Chiyoda
-            O = Snakeoil Development
+            O = Local Development
             CN = localhost
 
             [v3_req]
@@ -160,8 +160,8 @@ final class CertificateGenerator
             'C'  => 'JP',
             'ST' => 'Tokyo',
             'L'  => 'Chiyoda',
-            'O'  => 'Snakeoil Development',
-            'CN' => 'Local Development Root CA',
+            'O'  => 'Local Development',
+            'CN' => 'localhost',
         ];
 
         $csr = openssl_csr_new($dn, $caKey, [
@@ -194,7 +194,7 @@ final class CertificateGenerator
             'C'  => 'JP',
             'ST' => 'Tokyo',
             'L'  => 'Chiyoda',
-            'O'  => 'Snakeoil Development',
+            'O'  => 'Local Development',
             'CN' => 'localhost',
         ];
 

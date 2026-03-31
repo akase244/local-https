@@ -2,7 +2,7 @@
 set -e
 
 CERT_DIR="/certs"
-ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_NAME="snakeoil_ca"
 ROOTCA_CERT_KEY="${CERT_DIR}/${ROOTCA_CERT_NAME}.key"
 ROOTCA_CERT_CRT="${CERT_DIR}/${ROOTCA_CERT_NAME}.crt"
 SERVER_CERT_NAME="snakeoil"
@@ -23,7 +23,7 @@ vault secrets enable pki
 vault secrets tune -max-lease-ttl=87600h pki
 
 vault write pki/root/generate/internal \
-  common_name="Local Development Root CA" \
+  common_name="localhost" \
   ttl=87600h
 
 vault read -field=certificate pki/cert/ca > ${ROOTCA_CERT_CRT}

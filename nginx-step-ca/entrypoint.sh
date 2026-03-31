@@ -2,7 +2,7 @@
 set -e
 
 CERT_DIR="/etc/nginx/certs"
-ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_NAME="snakeoil_ca"
 ROOTCA_CERT_KEY="${ROOTCA_CERT_NAME}.key"
 ROOTCA_CERT_CRT="${ROOTCA_CERT_NAME}.crt"
 SERVER_CERT_NAME="snakeoil"
@@ -16,7 +16,7 @@ if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ]; then
   echo "generating ca certificate..."
 
   step certificate create \
-    "Local Development Root CA" \
+    "localhost" \
     "${ROOTCA_CERT_CRT}" \
     "${ROOTCA_CERT_KEY}" \
     --profile root-ca \

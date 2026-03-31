@@ -2,7 +2,7 @@
 set -e
 
 CERT_DIR="/usr/local/apache2/conf/certs"
-ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_NAME="snakeoil_ca"
 ROOTCA_CERT_KEY="${CERT_DIR}/${ROOTCA_CERT_NAME}.key"
 ROOTCA_CERT_CRT="${CERT_DIR}/${ROOTCA_CERT_NAME}.crt"
 SERVER_CERT_NAME="snakeoil"
@@ -27,7 +27,7 @@ x509_extensions = v3_ca
 C = JP
 ST = Tokyo
 L = Chiyoda
-O = Snakeoil Development
+O = Local Development
 CN = localhost
 
 [v3_ca]
