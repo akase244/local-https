@@ -2,7 +2,7 @@
 set -e
 
 CERT_DIR="/etc/nginx/certs"
-ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_NAME="snakeoil_ca"
 ROOTCA_CERT_KEY="${ROOTCA_CERT_NAME}-key.pem"
 ROOTCA_CERT_CRT="${ROOTCA_CERT_NAME}.pem"
 ROOTCA_CERT_CSR="${ROOTCA_CERT_NAME}.csr"
@@ -38,7 +38,7 @@ EOF
 
   cat > "${ROOTCA_CERT_CSR_JSON}" <<EOF
 {
-  "CN": "Local Development Root CA",
+  "CN": "localhost",
   "key": {
     "algo": "rsa",
     "size": 4096
@@ -48,7 +48,7 @@ EOF
       "C": "JP",
       "ST": "Tokyo",
       "L": "Chiyoda",
-      "O": "Snakeoil Development"
+      "O": "Local Development"
     }
   ]
 }
@@ -82,7 +82,7 @@ if [ ! -f "${SERVER_CERT_KEY}" ] || [ ! -f "${SERVER_CERT_CRT}" ]; then
       "C": "JP",
       "ST": "Tokyo",
       "L": "Chiyoda",
-      "O": "Snakeoil Development"
+      "O": "Local Development"
     }
   ]
 }

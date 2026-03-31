@@ -429,8 +429,8 @@ final class X509Builder
             [self::OID_COUNTRY,      'JP'],
             [self::OID_STATE,        'Tokyo'],
             [self::OID_LOCALITY,     'Chiyoda'],
-            [self::OID_ORGANIZATION, 'Snakeoil Development'],
-            [self::OID_COMMON_NAME,  'Local Development Root CA'],
+            [self::OID_ORGANIZATION, 'Local Development'],
+            [self::OID_COMMON_NAME,  'localhost'],
         ];
     }
 
@@ -634,7 +634,7 @@ final class CertificateGenerator
 
     public function __construct(
         private readonly string $certDir,
-        private readonly string $rootCaName     = 'snakeoil_Development_Root_CA',
+        private readonly string $rootCaName     = 'snakeoil_ca',
         private readonly string $serverCertName = 'snakeoil',
     ) {}
 

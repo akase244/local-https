@@ -2,7 +2,7 @@
 set -e
 
 CERT_DIR="/etc/nginx/certs"
-ROOTCA_CERT_NAME="snakeoil_Development_Root_CA"
+ROOTCA_CERT_NAME="snakeoil_ca"
 ROOTCA_CERT_KEY="${CERT_DIR}/${ROOTCA_CERT_NAME}.key"
 ROOTCA_CERT_CRT="${CERT_DIR}/${ROOTCA_CERT_NAME}.crt"
 SERVER_CERT_NAME="snakeoil"
@@ -22,7 +22,7 @@ if [ ! -f "${ROOTCA_CERT_KEY}" ] || [ ! -f "${ROOTCA_CERT_CRT}" ]; then
     -sha256 \
     -days 3650 \
     -out "${ROOTCA_CERT_CRT}" \
-    -subj "/C=JP/ST=Tokyo/L=Chiyoda/O=Snakeoil/CN=Local Development Root CA"
+    -subj "/C=JP/ST=Tokyo/L=Chiyoda/O=Local Development/CN=localhost"
 
   chmod 600 "${ROOTCA_CERT_KEY}"
   chmod 644 "${ROOTCA_CERT_CRT}"
@@ -47,7 +47,7 @@ req_extensions = v3_req
 C = JP
 ST = Tokyo
 L = Chiyoda
-O = Snakeoil Development
+O = Local Development
 CN = localhost
 
 [v3_req]
