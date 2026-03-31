@@ -1,7 +1,7 @@
 services:
-  php-pure-php-x509:
+  php-pure-php-tls:
     build: .
-    container_name: php-pure-php-x509
+    container_name: php-pure-php-tls
     volumes:
       - ./certs:/etc/nginx/certs
 
@@ -9,7 +9,7 @@ services:
     image: nginx:alpine
     container_name: web-server
     depends_on:
-      php-pure-php-x509:
+      php-pure-php-tls:
         condition: service_completed_successfully
     ports:
       - "127.0.0.1:443:443"
